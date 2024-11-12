@@ -15,9 +15,9 @@ assigns a directory seperator as per the requirements'''
     else:
         return "/"
 
-def final_directory(name : str) -> None:
-    global end 
-    end = director_seperator() +  'asd' + director_seperator() + name
+def final_directory(name : str) -> str:
+
+    return director_seperator() +  'students' + director_seperator() + name
 
 def create_directory(name : str) -> None:
     '''Creates a directory with the argument passed'''
@@ -42,8 +42,14 @@ def check_if_all_directories_exists(name_list : list) -> None:
     return None
 
 def create_encrypted_file(file : str, data : str) -> None:
+
     with open(file, 'w') as g:
         g.write(data)
 
 def list_all_files(way) -> list:
+
     return listdir(way)
+
+def delete_a_file(name : str) -> None:
+    
+    remove(director_seperator() + 'students' + director_seperator() + name)

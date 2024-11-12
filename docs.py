@@ -1,4 +1,4 @@
-from test2 import *
+from main import *
 
 def show_docs() -> None:
     '''used for showing the documents of other functions.'''
