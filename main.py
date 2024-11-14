@@ -309,10 +309,11 @@ def deleting_files() -> None:
     basic_decorator()
     deleting_files()
 
-clear_terminal()
-print("\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tWELCOME TO TEXT ENCRYPTION SYSTEM ")
-sleep(2) 
-clear_terminal()
-m = list(dict.keys(dict1))
-check_if_all_directories_exists(m)
-init()
+if __name__ == "__main__":
+    clear_terminal()
+    print("\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tWELCOME TO TEXT ENCRYPTION SYSTEM ")
+    sleep(2) 
+    clear_terminal()
+    m = list(dict.keys(dict1))
+    check_if_all_directories_exists(m)
+    init()
