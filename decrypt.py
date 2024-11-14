@@ -1,21 +1,5 @@
-# f = open("RISE OF EV encrypted.TXT",'r')
-# text = f.read()   
-
-def fuck(text : str) -> str:
-    l = []
-    finaltext = ''
-
-    for i in range(0,len(text),3):
-        ele = text[i:i+3]             
-        l.append(ele)
-
-    for i in l:
-        finaltext += fun(i)
-
-    return finaltext
-
-
 def fun(i : str) -> str:
+    '''This function is used for decrypting a certain string'''
     #uppercase alphabets
     if i == '123':
         return 'A'
@@ -203,7 +187,21 @@ def fun(i : str) -> str:
         return '?'
     elif i == '999':
         return ' '
-    else:
-        return ''
     
 
+def decrypt(text : str) -> str:
+
+    '''This function is used for decrypting data'''
+    
+    l = []
+    finaltext = ''
+
+    for i in range(0,len(text),3):
+        ele = text[i:i+3]             
+        l.append(ele)
+
+    for i in l:
+        print(i)
+        finaltext += fun(i)
+
+    return finaltext

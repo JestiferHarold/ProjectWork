@@ -1,6 +1,7 @@
 
 # Encryption functions for uppercase letters
 def bets1(i : str) -> str:
+    '''This function is used for the encryption of uppercase letters'''
     if i == 'A':
         return '123'
     elif i == 'B':
@@ -54,6 +55,8 @@ def bets1(i : str) -> str:
 
 # Encryption function for lowercase letters
 def bets2(i : str) -> str:
+    '''This function is used for the encryption of lowercase letters'''
+
     if i == 'a':
         return '167'
     elif i == 'b':
@@ -107,6 +110,8 @@ def bets2(i : str) -> str:
 
 # Encryption function for digits
 def git(d : str) -> str:
+    '''This function is used for the encryption of digits'''
+
     if d == '0':
         return '047'
     elif d == '1':
@@ -130,10 +135,14 @@ def git(d : str) -> str:
 
 # Encryption function for space
 def space(s : str) -> str:
+    '''This function is used for the encryption of a non-graphic character, space'''
+
     return '723'
 
 # Encryption function for special characters
 def special(s : str) -> str:
+    '''This function is used for the encryption of special characters'''
+
     if s == '~':
         return '007'
     elif s == '`':
@@ -192,13 +201,16 @@ def special(s : str) -> str:
         return '412'
     elif s == '?':
         return '904'
-    elif "\n" == s:
-        pass
+    # elif "\n" == s:
+    #     pass
     else:
         return '785'
 
 # Main encryption function
 def texties(filedata :str ) -> str:
+
+    '''This function is used for encrypting data'''
+    
     encrypted_text = ''
     for i in filedata:
         if i.isalpha():
@@ -211,4 +223,3 @@ def texties(filedata :str ) -> str:
             code = special(i)
         encrypted_text += code
     return encrypted_text
-
