@@ -2,6 +2,8 @@ from os_utils import *
 from tkinter_utiks import *
 from file_utils import *
 # from PROJECT import *
+from  encrypt import *
+from decrypt import *
 from os import *
 from time import *
 
@@ -98,18 +100,21 @@ def Dashboard():
 3. Delete an file
 4. Account options
 5. Exit'''))
+    
     if 1 < options2 < 5:
-        options_comb(Dashboard)
-        return
+        return Dashboard_comb(Dashboard)
+    
     Dashboard()
 
-def options_comb(i):
+def Dashboard_comb(i):
     if i == 1:
         return fillie()
     elif i == 2:
         return decrpyt()
     elif i == 3:
-        ...
+        delete_em()
+    elif i == 4:
+        account_settings()
     else:
         return quit()
     
@@ -161,9 +166,17 @@ def account_settings_comb(opt):
 def fillie():
     data = input("Enter data which is to be encrypted \n")
     file_name = input("Enter the file name : ")
+
     if file_name not in list_all_files(asdname1):
-        ...
+        data1 = text(data)
+        create_encrypted_file(file_name, data1)
+        print(f"The data has been encrypted and has been saved in a file name {file_name}")
+
+        
     
+def encrypt():
+    
+
 def decrpyt():
     file_name = input("Enter the name of the file")
     if file_name in list_all_files(asdname1):
@@ -176,9 +189,7 @@ def delete_em():
         print(f"{file_name} has been removed successfully from your account")
         return
     print(f"encrypted file with the name {file_name} is not avaialble, try again")
-    time(10)
+    sleep(10)
     delete_em()
 
-
-create_base_binary_file()
 init()

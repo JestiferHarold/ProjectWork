@@ -193,6 +193,8 @@ def special(s):
         return '412'
     elif s == '?':
         return '904'
+    elif "\n" == s:
+        pass
     else:
         return '785'
 
