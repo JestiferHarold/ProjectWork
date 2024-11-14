@@ -10,7 +10,6 @@ m = 0
 
 def binary_flush():
     
-
     dump(dict1, file)
     file.flush()
 

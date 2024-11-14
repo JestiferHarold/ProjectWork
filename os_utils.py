@@ -1,17 +1,24 @@
 from os import *
-from platform import *
+import platform
 from shutil import *    
 from sys import path
 from file_utils import *
+from time import *
 
+def get_os_name():
+    return platform.system()
+
+def clear_terminal():
+    if get_os_name() in ("Windows",'asd'):
+        system("cls")
+    else:
+        system("clear")
 
 def director_seperator() -> str:
     '''finds the type of operating system used and 
 assigns a directory seperator as per the requirements'''
 
-    dir_sep = system()
-
-    if dir_sep.startswith("Wind"):
+    if get_os_name() == "Windows":
         return "\\"
     else:
         return "/"

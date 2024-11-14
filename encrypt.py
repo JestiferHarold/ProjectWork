@@ -1,5 +1,5 @@
-f = open("RISE OF EV.txt",'r')
-data = f.read()
+# f = open("RISE OF EV.txt",'r')
+# data = f.read()``
 # Encryption functions for uppercase letters
 def bets1(i):
     if i == 'A':
@@ -213,8 +213,8 @@ def text(filedata):
         encrypted_text += code
     return encrypted_text
 
-op = text(data)
+# op = text(data)
 
-f2 = open("RISE OF EV ENCRYPTED.txt",'w')
-f2.write(op)
-f2.close()
+# f2 = open("RISE OF EV ENCRYPTED.txt",'w')
+# f2.write(op)
+# f2.close()

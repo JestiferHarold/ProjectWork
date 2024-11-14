@@ -7,7 +7,7 @@ l = []
 for i in range(0,len(text),3):
     ele = text[i:i+3]              # to split it in groups of 3 and store those strings in a list for decryption
     l.append(ele)
-print(l)
+# print(l)
 
 def fun(i):
     #uppercase alphabets
@@ -197,8 +197,8 @@ def fun(i):
         return '?'
     elif i == '999':
         return ' '
-
+    else:
+        return ''
 for i in l:
     finaltext += fun(i)
 
-print(finaltext)
