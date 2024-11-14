@@ -69,9 +69,9 @@ def caa() -> None:
     email = input(f"Enter the email for {asdname} : ")
     if create_account(asdname, password, email):
         print(f"An account with the username {asdname} and email {email} has been created")
-        time(10)
+        sleep(10)
 
-        return 
+        return init()
     else:
         print(f"Account with the username {asdname} exist, try an different username")
         time(10)
@@ -85,7 +85,7 @@ def daa():
             if is_password_same(asdname, password):
                 delete_directory(asdname)
                 print(f"The Account with the username {asdname} has been deleted")
-                return 
+                return Dashboard()
             print("Wrong password")
             return decoy()
         return decoy()
@@ -108,7 +108,7 @@ def Dashboard():
 
 def Dashboard_comb(i):
     if i == 1:
-        return fillie()
+        return encrpyting()
     elif i == 2:
         return decrpyt()
     elif i == 3:
@@ -163,7 +163,7 @@ def account_settings_comb(opt):
     else:
         return quit()
 
-def fillie():
+def encrpyting():
     data = input("Enter data which is to be encrypted \n")
     file_name = input("Enter the file name : ")
 
@@ -174,23 +174,21 @@ def fillie():
         return Dashboard()
 
     print(f"file with the name {file_name} exists, try again")
-    fillie()
-        
-    
-def encrypt():
-    
+    encrpyting()
 
 def decrpyt():
+    print(list_all_files(asdname1))
     file_name = input("Enter the name of the file")
     if file_name in list_all_files(asdname1):
-        ...
-    
+        data = read_encrypted_file(asdname1, file_name)
+
+
 def delete_em():
     file_name = input("Enter the name of the file you want to delete")
     if file_name in list_all_files(asdname1):
         remove_file(asdname1, file_name)
         print(f"{file_name} has been removed successfully from your account")
-        return
+        return 
     print(f"encrypted file with the name {file_name} is not avaialble, try again")
     sleep(10)
     delete_em()

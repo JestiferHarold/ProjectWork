@@ -9,6 +9,7 @@ dict1 = {}
 m = 0
 
 def binary_flush():
+    
 
     dump(dict1, file)
     file.flush()
@@ -75,7 +76,7 @@ def login(username, password):
 
  
 def create_account(username, password, email):
-    if not check_if_username_exists(username) and check_if_email_exists(email) and not password_strength(password):
+    if not check_if_username_exists(username) and not password_strength(password):
         dict1[username] = [password, email]
         binary_flush()
         read_binary_file()

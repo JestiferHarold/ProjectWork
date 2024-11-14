@@ -59,8 +59,9 @@ def delete_a_file(name : str) -> None:
     
     remove(director_seperator() + 'students' + director_seperator() + name)
 
-def read_encrypted_file(name : str) -> None:
-    print("asd")
+def read_encrypted_file(name : str, file) -> None:
+    with open(director_seperator() + 'students' + director_seperator() + name + director_seperator() + file, 'w') as g:
+        return g.read()
 
 def remove_file(username : str, file_name : str) -> None:
     remove(director_seperator() + 'students' + director_seperator() + username + director_seperator() + file_name)
