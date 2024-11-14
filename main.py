@@ -89,9 +89,6 @@ def caa() -> None:
     basic_decorator()
 
     if create_account(asdname, password, email):
-        # if password_strength(password):
-        #     basic_decorator()
-        #     caa()
         decorator1("Main Page",f"An account with the username {asdname} and email {email} has been created")
         return init()
     
