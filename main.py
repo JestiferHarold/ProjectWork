@@ -2,7 +2,6 @@ from os_utils import *
 from file_utils import *
 from  encrypt import *
 from decrypt import *
-# from os import *
 from platform import *
 from time import *
 from decorator import *
@@ -11,19 +10,20 @@ def quit() -> None:
     print("Thank you for using our service")
     exit()
 
-def init():
+def init() -> None:
 
     option = int(input('''
+Welcome to the Text Encryption Program
 
 1. Login
 2. Create an account 
 3. Forgot Password
 4. Exit
                        
-'''))
+Enter an option HERE to move forward : '''))
     
     if 0 < option < 5:
-        return init_option_match(option)
+        return init_option_matcher(option)
 
     clear_terminal()
     print("The option entered is invalid try again")
@@ -31,14 +31,14 @@ def init():
     clear_terminal()
     init()
         
-def init_option_match(option):
+def init_option_matcher(option : int) -> None:
     sleep(1)
     if str(option) in '1':
         decorator1("Login","Valid Option")
-        return asd()
+        return logging()
     elif str(option) in '2':    
         decorator1("Account Creation","Valid Option")
-        return caa()
+        return creating_an_account()
     elif str(option) in '3':
         decorator1("Forgot password","Valid Option")
         return forgot_password()
@@ -46,7 +46,7 @@ def init_option_match(option):
         decorator_for_quiting("Quiting")
         return quit()
 
-def asd() -> None:
+def logging() -> None:
     global asdname1
     asdname1 = input("Enter your username : ")
     password = input(f"Enter the password for {asdname1} : ")
@@ -62,10 +62,10 @@ def asd() -> None:
 
         print("Password or username is wrong, please try again")
         basic_decorator()
-        asd()
+        logging()
 
 
-def forgot_password():
+def forgot_password() -> None:
     username = input("Enter your username : ")
     email = input("Enter your email : ")
     basic_decorator()
@@ -82,7 +82,7 @@ def forgot_password():
     basic_decorator()
     forgot_password()
 
-def caa() -> None:
+def creating_an_account() -> None:
     asdname = input("Enter your username : ")
     password = input(f"Enter the password for {asdname} : ")
     email = input(f"Enter the email for {asdname} : ")
@@ -94,9 +94,9 @@ def caa() -> None:
     
     print(f"Account with the username {asdname} exist, try an different username")
     basic_decorator()
-    caa()
+    creating_an_account()
 
-def daa():
+def deleting_an_account() -> None:
     asdname = input("Enter your username : ")
     basic_decorator()
     if check_if_username_exists(asdname):
@@ -115,7 +115,7 @@ def daa():
     basic_decorator()
     init()
 
-def Dashboard():
+def Dashboard() -> None:
     options2 = int(input('''
 Welcome to the Dashboard, select an option to move forward
                          
@@ -128,22 +128,22 @@ Welcome to the Dashboard, select an option to move forward
 Enter your option HERE : '''))
     
     if 0 < options2 < 6:
-        return Dashboard_comb(options2)
+        return Dashboard_option_matcher(options2)
     
     basic_decorator()
     print("Invaild option, Try again")
     Dashboard()
 
-def Dashboard_comb(i):
+def Dashboard_option_matcher(i : int) -> None:
     if i == 1:
         decorator1("Encryption","Valid option")
         return encrpyting()
     elif i == 2:
         decorator1("Decryption","Valid option")
-        return decrpyt()
+        return decrpyting()
     elif i == 3:
         decorator1("File Detetion","Valid option")
-        delete_em()
+        deleting_files()
     elif i == 4:
         decorator1("Account Settings","Valid option")
         account_settings()
@@ -151,22 +151,26 @@ def Dashboard_comb(i):
         decorator_for_quiting("Logging out of")
         return quit()
     
-def account_settings():
+def account_settings() -> None:
     opt = int(input('''
+Account Settings, select an option to move forward
+                    
 1. Delete Account and it's data
 2. Change Password
 3. Change Username
 4. Go Back
-5. Logout'''))
+5. Logout
+                    
+Enter your option HERE : '''))
     
     if 0 < opt < 6:
-        return account_settings_comb(opt)
+        return account_settings_option_matcher(opt)
     
     basic_decorator()
     print("Invalid option Try again")
     account_settings()
 
-def inv_pass():
+def inv_pass() -> None:
     username = input("Enter your username : ")
     old_password = input("Enter your old password : ")
     new_password = input("Enter your new Password : ")
@@ -181,7 +185,7 @@ def inv_pass():
     print("Password or username incorrect")
     inv_pass()
 
-def inv_user():
+def inv_user() -> None:
     password = input("Enter your password : ")
     basic_decorator()
     if is_password_same(asdname1, password):
@@ -193,10 +197,10 @@ def inv_user():
     return inv_user()
         
 
-def account_settings_comb(opt):
+def account_settings_option_matcher(opt : int) -> None:
     if opt == 1:
         decorator1("Account Deletion","Valid option")
-        return daa()
+        return deleting_an_account()
     elif opt == 2:
         decorator1("Password Changing","Valid option")     
         return inv_pass()
@@ -210,25 +214,19 @@ def account_settings_comb(opt):
         decorator_for_quiting("Logging out of")
         return quit()
 
-def encrpyting():
+def encrpyting() -> None:
     data = input("Enter data which is to be encrypted \n")
     file_name = input("Enter the file name : ")
     basic_decorator()
     if file_name not in list_all_files(logged_user):
-        data1 = texties(data)
-        print(type(asdname1))  # Check the type of asdname1
-        print(type(file_name))
-        print(type(logged_user))
-        # print(sep)
-        with open(f'Accounts{os.sep}{str(asdname1)}{os.sep}{str(file_name)}.txt', 'w+') as g:
-            g.write(data1)
+        create_encrypted_file(asdname1, file_name, data)
         decorator1("Dashboard",f"The data has been encrypted and has been saved in a file name {file_name}")
         return Dashboard()
     basic_decorator()
     print(f"file with the name {file_name} exists, try again")
     encrpyting()
 
-def decrpyt():
+def decrpyting() -> None:
     file_name = input("Enter the name of the file")
     basic_decorator()
     if file_name in list_all_files(asdname1):
@@ -240,9 +238,9 @@ def decrpyt():
     
     print(f"encrypted file with the name {file_name} is not avaialble, try again")
     basic_decorator()
-    decrpyt()
+    decrpyting()
 
-def delete_em():
+def deleting_files() -> None:
     file_name = input("Enter the name of the file you want to delete")
     basic_decorator()
     if file_name in list_all_files(logged_user):
@@ -253,13 +251,12 @@ def delete_em():
     
     print(f"encrypted file with the name {file_name} is not avaialble, try again")
     basic_decorator()
-    delete_em()
+    deleting_files()
 
 clear_terminal()
 print("\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tWELCOME TO TEXT ENCRYPTION SYSTEM ")
 sleep(2)
 clear_terminal()
-
-keys = list(dict.keys(dict1))
-check_if_all_directories_exists(keys)
+m = list(dict.keys(dict1))
+check_if_all_directories_exists(m)
 init()

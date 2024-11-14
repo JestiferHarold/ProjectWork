@@ -1,6 +1,6 @@
 
 # Encryption functions for uppercase letters
-def bets1(i):
+def bets1(i : str) -> str:
     if i == 'A':
         return '123'
     elif i == 'B':
@@ -53,7 +53,7 @@ def bets1(i):
         return '701'
 
 # Encryption function for lowercase letters
-def bets2(i):
+def bets2(i : str) -> str:
     if i == 'a':
         return '167'
     elif i == 'b':
@@ -106,7 +106,7 @@ def bets2(i):
         return '103'
 
 # Encryption function for digits
-def git(d):
+def git(d : str) -> str:
     if d == '0':
         return '047'
     elif d == '1':
@@ -129,11 +129,11 @@ def git(d):
         return '191'
 
 # Encryption function for space
-def space(s):
+def space(s : str) -> str:
     return '723'
 
 # Encryption function for special characters
-def special(s):
+def special(s : str) -> str:
     if s == '~':
         return '007'
     elif s == '`':
@@ -198,7 +198,7 @@ def special(s):
         return '785'
 
 # Main encryption function
-def texties(filedata):
+def texties(filedata :str ) -> str:
     encrypted_text = ''
     for i in filedata:
         if i.isalpha():

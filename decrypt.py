@@ -1,7 +1,7 @@
 # f = open("RISE OF EV encrypted.TXT",'r')
 # text = f.read()   
 
-def fuck(text):
+def fuck(text : str) -> str:
     l = []
     finaltext = ''
 
@@ -15,7 +15,7 @@ def fuck(text):
     return finaltext
 
 
-def fun(i):
+def fun(i : str) -> str:
     #uppercase alphabets
     if i == '123':
         return 'A'
