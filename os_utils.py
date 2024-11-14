@@ -59,7 +59,7 @@ def read_encrypted_file(username : str, file2 :str) -> None:
 
     '''Reads an encrypted file'''
 
-    with open('Accounts' + os.sep + username + os.sep + file2 + '.txt', 'r') as g:
+    with open('Accounts' + os.sep + username + os.sep + file2, 'r') as g:
         return g.read()
 
 def remove_file(username : str, file_name : str) -> None:
@@ -68,3 +68,8 @@ def remove_file(username : str, file_name : str) -> None:
     
     os.remove('Accounts' + os.sep + username + os.sep + file_name)
     
+def change_directory_name(old_name, new_name):
+    
+    '''Changes the name of the folder'''
+
+    os.rename('Accounts' + os.sep + old_name, 'Accounts' + os.sep + new_name)

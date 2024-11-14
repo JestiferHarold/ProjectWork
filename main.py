@@ -1,5 +1,5 @@
-from os_utils import *
 from file_utils import *
+from os_utils import *
 from  encrypt import *
 from decrypt import *
 from platform import *
@@ -86,13 +86,13 @@ def forgot_password() -> None:
     email = input("Enter your email : ")
     basic_decorator()
 
-    if check_if_email_and_username_match(username, email):
+    if check_if_email_and_username_are_the_same(username, email):
 
         print(f"Username {username} with {email} as email exists")
         new_password = input(f"Enter the new password for {username} : ")
         change_password_forgot(username, new_password)
-        decorator1("Login",f"Password for {username} has been changed")
-        return login()
+        decorator1("Main",f"Password for {username} has been changed")
+        return init()
     
     print("Invaild username and email, Try again")
     basic_decorator()
@@ -108,7 +108,7 @@ def creating_an_account() -> None:
     basic_decorator()
 
     if create_account(asdname, password, email):
-        decorator1("Main Page",f"An account with the username {asdname} and email {email} has been created")
+        decorator1("Main Menu",f"An account with the username {asdname} and email {email} has been created")
         return init()
     
     print(f"Account with the username {asdname} exist, try an different username")
@@ -126,8 +126,9 @@ def deleting_an_account() -> None:
             password = input(f"An account with the username {asdname} exist enter password to proceed : ")
             if is_password_same(asdname, password):
                 delete_directory(asdname)
-                decorator1("Account Settings",f"The Account with the username {asdname} has been deleted")
-                return account_settings()
+                delete_account(asdname, password)
+                decorator1("Main Menu",f"The Account with the username {asdname} has been deleted")
+                return init()
             basic_decorator()
             print("Wrong password")
             return decoy()
@@ -165,10 +166,10 @@ def Dashboard_option_matcher(i : int) -> None:
 
     if i == 1:
         decorator1("Encryption","Valid option")
-        return encrpyting()
+        return encrypting()
     elif i == 2:
         decorator1("Decryption","Valid option")
-        return decrpyting()
+        return decrypting()
     elif i == 3:
         decorator1("File Detetion","Valid option")
         deleting_files()
@@ -213,7 +214,7 @@ def inv_pass() -> None:
         if password_strength(new_password):
             basic_decorator()
             inv_pass()
-        print(f"The password for {username} has been changed.")
+        decorator1("Accounts Settings",f"The password for {username} has been changed.")
         return account_settings()
     basic_decorator()
     print("Password or username incorrect")
@@ -225,10 +226,14 @@ def inv_user() -> None:
 
     password = input("Enter your password : ")
     basic_decorator()
-    if is_password_same(asdname1, password):
+    if is_password_same(logged_user, password):
         new_username = input("Enter your new username : ")
-        change_username(asdname1, password, new_username)
-        print("Username has been changed successfully ")
+        if check_if_username_exists(new_username):
+            decorator1("Account settings", "Username Already exists try again")
+            return account_settings()
+        change_username(logged_user, password, new_username)
+        change_directory_name(logged_user, new_username)
+        decorator1("Accounts Settings","Username has been changed successfully ")
         return account_settings()
     basic_decorator()
     return inv_user()
@@ -263,7 +268,7 @@ def encrypting() -> None:
     basic_decorator()
     if file_name not in list_all_files(logged_user):
         data1 = texties(data)
-        create_encrypted_file(asdname1, file_name, data1)
+        create_encrypted_file(logged_user, file_name, data1)
         decorator1("Dashboard",f"The data has been encrypted and has been saved in a file name {file_name}")
         return Dashboard()
     basic_decorator()
@@ -274,12 +279,12 @@ def decrypting() -> None:
 
     '''This function is used for decrypting encryted data'''
 
-    file_name = input("Enter the name of the file : ")
+    file_name = input("Enter the name of the file : ") + '.txt'
     basic_decorator()
-    if file_name in list_all_files(asdname1):
-        data = read_encrypted_file(asdname1, file_name)
-        m = decrypt(data)
-        print("The decrpyted message is \n", m)
+    if file_name in list_all_files(logged_user):
+        data = read_encrypted_file(logged_user, file_name)
+        d = decrypt(data)
+        print("The decrpyted message is \n", d)
         if not input("\nPress enter to get back to the Dashboard : "):
             basic_decorator()
             return Dashboard()
@@ -292,7 +297,7 @@ def deleting_files() -> None:
 
     '''This function is used for deleting files from a certain account'''
 
-    file_name = input("Enter the name of the file you want to delete : ")
+    file_name = input("Enter the name of the file you want to delete : ") + ".txt"
     basic_decorator()
     if file_name in list_all_files(logged_user):
         remove_file(logged_user, file_name)
@@ -306,7 +311,7 @@ def deleting_files() -> None:
 
 clear_terminal()
 print("\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tWELCOME TO TEXT ENCRYPTION SYSTEM ")
-sleep(2)
+sleep(2) 
 clear_terminal()
 m = list(dict.keys(dict1))
 check_if_all_directories_exists(m)

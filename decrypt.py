@@ -187,7 +187,8 @@ def fun(i : str) -> str:
         return '?'
     elif i == '999':
         return ' '
-    
+    else:
+        return ' '
 
 def decrypt(text : str) -> str:
 
@@ -201,7 +202,6 @@ def decrypt(text : str) -> str:
         l.append(ele)
 
     for i in l:
-        print(i)
         finaltext += fun(i)
 
     return finaltext

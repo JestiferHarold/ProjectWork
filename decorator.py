@@ -5,7 +5,7 @@ from platform import *
 def decorator1(page_name : str,asd : str) -> None:
 
     '''This function is used for decorating'''
-    
+
     clear_terminal()
     print(f"{asd} Moving to {page_name} page")
     sleep(3)
@@ -21,7 +21,7 @@ def basic_decorator() -> None:
 
 def decorator_for_quiting(q : str) -> None:
 
-    '''This function is used for decorating'''
+    '''This function is used for decorating the quit function'''
 
     sleep(1)
     clear_terminal()
