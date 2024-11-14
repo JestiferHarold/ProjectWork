@@ -19,10 +19,6 @@ def create_directory(name : str) -> None:
 
     mkdir('Accounts' + sep + name)
 
-def create_encrypted_file(username, filename):
-    with open('Accounts' + sep + name + sep + filename, "w") as w:
-        pass
-
 def delete_directory(name : str) -> None:
     '''deletes the directory with the argument passed '''
 
@@ -36,9 +32,9 @@ def check_if_all_directories_exists(name_list : list) -> None:
             create_directory(name)
     
 
-def create_encrypted_file(account : str, data : str, file : str) -> None:
+def create_encrypted_file(account : str, data : str, file2 : str) -> None:
 
-    with open('Accounts' + sep + account + sep + file, 'w') as g:
+    with open('Accounts' + sep + account + sep + file2, 'w') as g:
         g.write(data)
 
 def list_all_files(way) -> list:
@@ -49,8 +45,8 @@ def delete_a_file(name : str) -> None:
     
     remove('Accounts' + sep + name)
 
-def read_encrypted_file(name : str, file) -> None:
-    with open('Accounts' + sep + name + sep + file, 'w') as g:
+def read_encrypted_file(name : str, file2) -> None:
+    with open('Accounts' + sep + name + sep + file2, 'w') as g:
         return g.read()
 
 def remove_file(username : str, file_name : str) -> None:

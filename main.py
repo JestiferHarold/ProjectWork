@@ -12,8 +12,7 @@ def quit() -> None:
     exit()
 
 def init():
-    open_binary_file()
-    read_binary_file()
+
     option = int(input('''
 
 1. Login
@@ -71,7 +70,7 @@ def forgot_password():
     email = input("Enter your email : ")
     basic_decorator()
 
-    if check_if_email_and_username_are_the_same(username, email):
+    if check_if_email_and_username_match(username, email):
 
         print(f"Username {username} with {email} as email exists")
         new_password = input(f"Enter the new password for {username} : ")
@@ -90,9 +89,9 @@ def caa() -> None:
     basic_decorator()
 
     if create_account(asdname, password, email):
-        if password_strength(password):
-            basic_decorator()
-            caa()
+        # if password_strength(password):
+        #     basic_decorator()
+        #     caa()
         decorator1("Main Page",f"An account with the username {asdname} and email {email} has been created")
         return init()
     
@@ -259,8 +258,6 @@ print("\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tWELCOME TO TEXT ENCRYPTION SYSTEM ")
 sleep(2)
 clear_terminal()
 
-create_base_binary_file()
-open_binary_file()
-read_binary_file()
-check_if_all_directories_exists(list(dict.keys(dict1)))
+keys = list(dict.keys(dict1))
+check_if_all_directories_exists(keys)
 init()
