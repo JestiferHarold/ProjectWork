@@ -12,8 +12,8 @@ def quit() -> None:
     exit()
 
 def init():
-    # openn_binary_file()
-    # read_binary_file()
+    open_binary_file()
+    read_binary_file()
     option = int(input('''
 
 1. Login
@@ -90,6 +90,9 @@ def caa() -> None:
     basic_decorator()
 
     if create_account(asdname, password, email):
+        if password_strength(password):
+            basic_decorator()
+            caa()
         decorator1("Main Page",f"An account with the username {asdname} and email {email} has been created")
         return init()
     
@@ -128,7 +131,7 @@ Welcome to the Dashboard, select an option to move forward
 
 Enter your option HERE : '''))
     
-    if 0 < options2 < 5:
+    if 0 < options2 < 6:
         return Dashboard_comb(options2)
     
     basic_decorator()
@@ -171,19 +174,26 @@ def inv_pass():
     username = input("Enter your username : ")
     old_password = input("Enter your old password : ")
     new_password = input("Enter your new Password : ")
+    basic_decorator()
     if change_password(username, old_password, new_password):
+        if password_strength(new_password):
+            basic_decorator()
+            inv_pass()
         print(f"The password for {username} has been changed.")
         return account_settings()
+    basic_decorator()
     print("Password or username incorrect")
     inv_pass()
 
 def inv_user():
     password = input("Enter your password : ")
+    basic_decorator()
     if is_password_same(asdname1, password):
         new_username = input("Enter your new username : ")
         change_username(asdname1, password, new_username)
         print("Username has been changed successfully ")
         return account_settings()
+    basic_decorator()
     return inv_user()
         
 
@@ -218,10 +228,18 @@ def encrpyting():
     encrpyting()
 
 def decrpyt():
-    print(list_all_files(asdname1))
     file_name = input("Enter the name of the file")
+    basic_decorator()
     if file_name in list_all_files(asdname1):
         data = read_encrypted_file(asdname1, file_name)
+        m = fuck(data)
+        print("The decrpyted message is \n", m)
+        basic_decorator()
+        return Dashboard()
+    
+    print(f"encrypted file with the name {file_name} is not avaialble, try again")
+    basic_decorator()
+    decrpyt()
 
 def delete_em():
     file_name = input("Enter the name of the file you want to delete")
@@ -231,17 +249,18 @@ def delete_em():
         decorator1("Dashboard",f"{file_name} has been removed successfully from your account")
         return Dashboard()
     
-    basic_decorator()
+    
     print(f"encrypted file with the name {file_name} is not avaialble, try again")
+    basic_decorator()
     delete_em()
 
 clear_terminal()
 print("\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tWELCOME TO TEXT ENCRYPTION SYSTEM ")
-sleep(4)
+sleep(2)
 clear_terminal()
 
-# # create_base_binary_file()
-# open_binary_file()
-# read_binary_file()
+create_base_binary_file()
+open_binary_file()
+read_binary_file()
 check_if_all_directories_exists(list(dict.keys(dict1)))
 init()

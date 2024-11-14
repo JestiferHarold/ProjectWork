@@ -34,7 +34,7 @@ def check_if_username_exists(username):
 
 def check_if_email_exists(email):
 
-    for key in DICT:
+    for key in dict1:        #c1
         if email == (dict1[key][1]):
             print("{0} email already exists.".format(email))
             return True  
@@ -49,7 +49,7 @@ def check_if_binary_file_exists():
 def create_base_binary_file():
     global file1
     if not check_if_binary_file_exists():
-        with open("credentials.bin", "rb+") as file1:
+        with open("credentials.bin", "wb+") as file1:    #c2
             ...
 
 def is_password_same(username, password) -> bool:
@@ -59,7 +59,7 @@ def is_password_same(username, password) -> bool:
 def open_binary_file():
     global file1
     if file1 is None or file1.closed:
-        file1 = open("credentials.bin", "rb+")
+        file1 = open("credentials.bin", "wb+")
     read_binary_file()
 
 def read_binary_file():
@@ -103,6 +103,7 @@ def change_password(username, new_password, old_password):
 
 def change_username(username, password, new_username):
     if check_if_username_exists(username) and password == dict1[username][0] and not check_if_username_exists(new_username):
+        global m        #c4
         m = copy(dict1[username])
         del dict1[username]
         dict1[new_username] = copy(m)
@@ -112,7 +113,7 @@ def change_username(username, password, new_username):
 
 def change_email(username, password, new_email):
     if check_if_username_exists(username) and password == dict1[username][0]:
-        dict1[username][2] = new_email
+        dict1[username][1] = new_email        #c3
         binary_flush()
         read_binary_file()
 
