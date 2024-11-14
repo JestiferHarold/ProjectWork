@@ -1,5 +1,5 @@
-f = open("RISE OF EV encrypted.TXT",'r')
-text = f.read()   
+# f = open("RISE OF EV encrypted.TXT",'r')
+# text = f.read()   
 
 def fuck(text):
     l = []
@@ -11,7 +11,7 @@ def fuck(text):
 
     for i in l:
         finaltext += fun(i)
-        
+
     return finaltext
 
 

@@ -2,7 +2,7 @@ from os_utils import *
 from file_utils import *
 from  encrypt import *
 from decrypt import *
-from os import *
+# from os import *
 from platform import *
 from time import *
 from decorator import *
@@ -214,9 +214,14 @@ def encrpyting():
     data = input("Enter data which is to be encrypted \n")
     file_name = input("Enter the file name : ")
     basic_decorator()
-    if file_name not in list_all_files(asdname1):
+    if file_name not in list_all_files(logged_user):
         data1 = texties(data)
-        create_encrypted_file(file_name, data1,file_name)
+        print(type(asdname1))  # Check the type of asdname1
+        print(type(file_name))
+        print(type(logged_user))
+        # print(sep)
+        with open(f'Accounts{os.sep}{str(asdname1)}{os.sep}{str(file_name)}.txt', 'w+') as g:
+            g.write(data1)
         decorator1("Dashboard",f"The data has been encrypted and has been saved in a file name {file_name}")
         return Dashboard()
     basic_decorator()
