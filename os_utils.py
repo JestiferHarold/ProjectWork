@@ -28,13 +28,15 @@ def check_if_all_directories_exists(name_list : list) -> None:
     '''Checks if all the directories for the accounts are present
                                    if not creates a new directory for it''' 
     for name in name_list:
-        if not path.exists("Accounts" + sep + name):
+        if not os.path.exists("Accounts" + sep + name):
             create_directory(name)
     
 
-def create_encrypted_file(account : str, data : str, file2 : str) -> None:
+def create_encrypted_file(account , data , file2 ) -> None:
 
-    with open('Accounts' + sep + account + sep + file2, 'w') as g:
+    m = 'Accounts' + '\\' + account + '\\' + file2 + '.txt'
+    print(m)
+    with open(file2 + '.txt', 'w+') as g:
         g.write(data)
 
 def list_all_files(way) -> list:
@@ -45,8 +47,8 @@ def delete_a_file(name : str) -> None:
     
     remove('Accounts' + sep + name)
 
-def read_encrypted_file(name : str, file2) -> None:
-    with open('Accounts' + sep + name + sep + file2, 'w') as g:
+def read_encrypted_file(username : str, file2) -> None:
+    with open('Accounts' + sep + username + sep + file2, 'r') as g:
         return g.read()
 
 def remove_file(username : str, file_name : str) -> None:

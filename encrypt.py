@@ -198,7 +198,7 @@ def special(s):
         return '785'
 
 # Main encryption function
-def text(filedata):
+def texties(filedata):
     encrypted_text = ''
     for i in filedata:
         if i.isalpha():

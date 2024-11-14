@@ -40,6 +40,9 @@ def write_data_to_csv():
         for username, details in dict1.items():
             writer.writerow([username] + details)
 
+def is_password_same(username, password):
+    return dict1[username][0] == password
+
 def password_strength(password):
     """Checks if the password meets strength requirements."""
     if len(password) < 8:

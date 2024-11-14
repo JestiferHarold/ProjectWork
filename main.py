@@ -218,8 +218,8 @@ def encrpyting():
     file_name = input("Enter the file name : ")
     basic_decorator()
     if file_name not in list_all_files(asdname1):
-        data1 = text(data)
-        create_encrypted_file(file_name, data1)
+        data1 = texties(data)
+        create_encrypted_file(file_name, data1,file_name)
         decorator1("Dashboard",f"The data has been encrypted and has been saved in a file name {file_name}")
         return Dashboard()
     basic_decorator()
