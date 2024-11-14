@@ -128,10 +128,11 @@ Welcome to the Dashboard, select an option to move forward
 
 Enter your option HERE : '''))
     
-    if 1 < options2 < 5:
-        return Dashboard_comb(Dashboard)
+    if 0 < options2 < 5:
+        return Dashboard_comb(options2)
     
     basic_decorator()
+    print("Invaild option, Try again")
     Dashboard()
 
 def Dashboard_comb(i):
@@ -148,7 +149,7 @@ def Dashboard_comb(i):
         decorator1("Account Settings","Valid option")
         account_settings()
     else:
-        decorator_for_quiting()
+        decorator_for_quiting("Logging out of")
         return quit()
     
 def account_settings():
@@ -208,8 +209,8 @@ def encrpyting():
     file_name = input("Enter the file name : ")
     basic_decorator()
     if file_name not in list_all_files(asdname1):
-        # data1 = text(data)
-        # create_encrypted_file(file_name, data1)
+        data1 = text(data)
+        create_encrypted_file(file_name, data1)
         decorator1("Dashboard",f"The data has been encrypted and has been saved in a file name {file_name}")
         return Dashboard()
     basic_decorator()
@@ -221,7 +222,6 @@ def decrpyt():
     file_name = input("Enter the name of the file")
     if file_name in list_all_files(asdname1):
         data = read_encrypted_file(asdname1, file_name)
-
 
 def delete_em():
     file_name = input("Enter the name of the file you want to delete")
@@ -240,6 +240,8 @@ print("\n\n\n\n\n\n\t\t\t\t\t\t\t\t\tWELCOME TO TEXT ENCRYPTION SYSTEM ")
 sleep(4)
 clear_terminal()
 
+# # create_base_binary_file()
+# open_binary_file()
 # read_binary_file()
-# check_if_all_directories_exists(list(dict.keys(dict1)))
+check_if_all_directories_exists(list(dict.keys(dict1)))
 init()

@@ -1,17 +1,17 @@
-from pickle import *
+from pickle import dump, load
 from os_utils import *
-from os import *
+from os import path
 from copy import *
 import re
 
-global dict1
-dict1 = {}
+file1 = None
+dict1 = {'sanjay':['asd','Sanjay@12'], 'asdada' : None}
 m = 0
 
 def binary_flush():
-    
-    dump(dict1, file)
-    file.flush()
+    file1.seek(0)
+    dump(dict1, file1)
+    file1.flush()
 
 def password_strength(pswd):
 
@@ -28,14 +28,14 @@ def password_strength(pswd):
 
 def check_if_username_exists(username):
      
-    if username in DICT:
+    if username in dict1:
         return True
 
 
 def check_if_email_exists(email):
 
     for key in DICT:
-        if email == (DICT[key][1]):
+        if email == (dict1[key][1]):
             print("{0} email already exists.".format(email))
             return True  
                              
@@ -47,25 +47,29 @@ def check_if_binary_file_exists():
     return path.exists("credentials.bin")
 
 def create_base_binary_file():
+    global file1
     if not check_if_binary_file_exists():
-        with __builtins__.open("credentials.bin", "ab+") as what:
-            pass
+        with open("credentials.bin", "rb+") as file1:
+            ...
 
 def is_password_same(username, password) -> bool:
     if dict1[username][0] == password:
         return True
 
-def openn_binary_file():
-    global file
-    file = __builtins__.open("credentials.bin","ab+")
-    binary_flush()
+def open_binary_file():
+    global file1
+    if file1 is None or file1.closed:
+        file1 = open("credentials.bin", "rb+")
+    read_binary_file()
 
 def read_binary_file():
-    dict1 = load(file)
-
-def binary_flush():
-    dump(dict1, file)
-    file.flush()
+    """Load data from file into dict1 if available."""
+    global dict1, file1
+    try:
+        file1.seek(0)
+        dict1 = load(file1)
+    except EOFError:
+        dict1 = {}
 
 def login(username, password):
     if username in dict1 and dict1[username][0] == password:
@@ -113,19 +117,20 @@ def change_email(username, password, new_email):
         read_binary_file()
 
 
-functions_list = [
-    # director_seperator,
-    # create_directory,
-    # delete_directory,
-    # check_if_all_directories_exists,
-    # password_strength,
-    # check_if_email_exists,
-    # final_directory,
-    # check_if_username_exists,
-    # create_base_binary_file,
-    # create_account,
-    # read_binary_file,
-    # delete_account,
-    # change_password,
-    # change_username
-]
+# functions_list = [
+#     # director_seperator,
+#     create_directory,
+#     delete_directory,
+#     check_if_all_directories_exists,
+#     password_strength,
+#     check_if_email_exists,
+#     final_directory,
+#     check_if_username_exists,
+#     create_base_binary_file,
+#     create_account,
+#     read_binary_file,
+#     delete_account,
+#     change_password,
+#     change_username,
+#     clear_terminal
+# ]

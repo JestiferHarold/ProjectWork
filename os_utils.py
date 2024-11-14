@@ -10,66 +10,58 @@ def get_os_name():
 
 def clear_terminal():
     if get_os_name() in ("Windows",'asd'):
-        system("cls")
-    else:
-        system("clear")
+        return system("cls")
+    
+    return system("clear")
 
 def director_seperator() -> str:
     '''finds the type of operating system used and 
 assigns a directory seperator as per the requirements'''
 
     if get_os_name() == "Windows":
-        return "\\"
+        return str(chr(92))
     else:
         return "/"
-
-def final_directory(name : str) -> str:
-
-    return director_seperator() +  'students' + director_seperator() + name
-
+     
 def create_directory(name : str) -> None:
     '''Creates a directory with the argument passed'''
 
-    mkdir(director_seperator() + 'students' + director_seperator() + name)
+    mkdir('Accounts' + director_seperator() + name)
 
 def create_encrypted_file(username, filename):
-    with open(final_directory(username) + filename, "w") as w:
+    with open('Accounts' + director_seperator() + name + director_seperator() + filename, "w") as w:
         pass
 
 def delete_directory(name : str) -> None:
     '''deletes the directory with the argument passed '''
 
-    rmtree(director_seperator() + 'students' + director_seperator() + name) 
+    rmtree('Accounts' + director_seperator() + name) 
 
 def check_if_all_directories_exists(name_list : list) -> None:
     '''Checks if all the directories for the accounts are present
                                    if not creates a new directory for it''' 
+    for name in name_list:
+        if not path.exists(f"Accounts\\{name}"):
+            create_directory(name)
+    
 
-    for i in name_list:
-        if path.exists(i):
-            continue
-        else:
-            create_directory(i)
+def create_encrypted_file(account : str, data : str, file : str) -> None:
 
-    return None
-
-def create_encrypted_file(file : str, data : str) -> None:
-
-    with open(director_seperator() + 'students' + director_seperator() + file, 'w') as g:
+    with open('Accounts' + director_seperator() + account + director_seperator() + file, 'w') as g:
         g.write(data)
 
 def list_all_files(way) -> list:
 
-    return listdir(final_directory(way))
-
+    m = listdir('Accounts' + director_seperator() + way)
+    return m
 def delete_a_file(name : str) -> None:
     
-    remove(director_seperator() + 'students' + director_seperator() + name)
+    remove('Accounts' + director_seperator() + name)
 
 def read_encrypted_file(name : str, file) -> None:
-    with open(director_seperator() + 'students' + director_seperator() + name + director_seperator() + file, 'w') as g:
+    with open('Accounts' + director_seperator() + name + director_seperator() + file, 'w') as g:
         return g.read()
 
 def remove_file(username : str, file_name : str) -> None:
-    remove(director_seperator() + 'students' + director_seperator() + username + director_seperator() + file_name)
+    remove('Accounts' + director_seperator() + username + director_seperator() + file_name)
     
