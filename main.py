@@ -20,20 +20,19 @@ def init() -> None:
 '''))
     
     if 0 < option < 5:
-        init_comb(option)
-        return
+        return init_comb(option)
     
     init()
         
 def init_comb(option):
     if option in 1:
-        asd()
+        return asd()
     elif option in 2:
-        caa()
+        return caa()
     elif option in 3:
-        daa()
+        return daa()
     else:
-        quit()
+        return quit()
 
 def asd() -> None:
     global asdname1
@@ -43,7 +42,7 @@ def asd() -> None:
         print("Login in successfull")
         global asd
         asd = asdname1
-        return 
+        return Dashboard()
     else:
         print("Password or username is wrong, please try again")
         time(10)
@@ -86,13 +85,13 @@ def daa():
                 print(f"The Account with the username {asdname} has been deleted")
                 return 
             print("Wrong password")
-            decoy()
-        decoy()
+            return decoy()
+        return decoy()
     else:
         print(f"Account with the username {asdname} does not exist.")
         init()
 
-def options():
+def Dashboard():
     options2 = int(input('''
 1. Create and encrypt data
 2. decrypt an encrpyted data
@@ -100,19 +99,19 @@ def options():
 4. Account options
 5. Exit'''))
     if 1 < options2 < 5:
-        options_comb(options)
+        options_comb(Dashboard)
         return
-    options()
+    Dashboard()
 
 def options_comb(i):
     if i == 1:
-        fillie()
+        return fillie()
     elif i == 2:
-        decrpyt()
+        return decrpyt()
     elif i == 3:
         ...
     else:
-        quit()
+        return quit()
     
 def account_settings():
     opt = int(input('''
@@ -122,8 +121,8 @@ def account_settings():
 4. Go Back
 5. Logout'''))
     if 0 < opt < 6:
-        account_settings_comb(opt)
-        return
+        return account_settings_comb(opt)
+    
     print("Invalid option Try again")
     account_settings()
 
@@ -143,21 +142,21 @@ def inv_user():
         new_username = input("Enter your new username : ")
         change_username(asdname1, password, new_username)
         print("Username has been changed successfully ")
-        return
+        return account_settings()
     return inv_user()
         
 
 def account_settings_comb(opt):
     if opt == 1:
-        daa()
+        return daa()
     elif opt == 2:
-        inv_pass()
+        return inv_pass()
     elif opt == 3:
-        inv_user()
+        return inv_user()
     elif opt == 4:
-        return options()
+        return Dashboard()
     else:
-        quit()
+        return quit()
 
 def fillie():
     data = input("Enter data which is to be encrypted \n")
