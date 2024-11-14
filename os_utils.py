@@ -73,3 +73,12 @@ def change_directory_name(old_name, new_name):
     '''Changes the name of the folder'''
 
     os.rename('Accounts' + os.sep + old_name, 'Accounts' + os.sep + new_name)
+
+def create_Accounts_folder():
+
+    '''Creates an Directory for accounts if it does not exists'''
+
+    if not os.path.exists("Accounts"):
+        os.mkdir("Accounts")
+
+create_Accounts_folder()

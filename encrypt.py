@@ -33,7 +33,7 @@ def bets1(i : str) -> str:
     elif i == 'O':
         return '069'
     elif i == 'P':
-        return '128'
+        return '127'
     elif i == 'Q':
         return '024'
     elif i == 'R':
@@ -46,12 +46,14 @@ def bets1(i : str) -> str:
         return '989'
     elif i == 'V':
         return '116'
+    elif i == 'W':
+        return '171'
     elif i == 'X':
         return '247'
     elif i == 'Y':
         return '050'
     else:
-        return '701'
+        return '799'
 
 # Encryption function for lowercase letters
 def bets2(i : str) -> str:
@@ -66,9 +68,9 @@ def bets2(i : str) -> str:
     elif i == 'd':
         return '192'
     elif i == 'e':
-        return '123'
+        return '125'
     elif i == 'f':
-        return '167'
+        return '168'
     elif i == 'g':
         return '010'
     elif i == 'h':
@@ -78,7 +80,7 @@ def bets2(i : str) -> str:
     elif i == 'j':
         return '779'
     elif i == 'k':
-        return '230'
+        return '231'
     elif i == 'l':
         return '023'
     elif i == 'm':
@@ -101,12 +103,14 @@ def bets2(i : str) -> str:
         return '239'
     elif i == 'v':
         return '611'
+    elif i == 'w':
+        return '901'
     elif i == 'x':
         return '742'
     elif i == 'y':
         return '049'
     else:
-        return '103'
+        return '791'
 
 # Encryption function for digits
 def git(d : str) -> str:
@@ -137,7 +141,7 @@ def git(d : str) -> str:
 def space(s : str) -> str:
     '''This function is used for the encryption of a non-graphic character, space'''
 
-    return '723'
+    return '999'
 
 # Encryption function for special characters
 def special(s : str) -> str:
@@ -156,7 +160,7 @@ def special(s : str) -> str:
     elif s == '$':
         return '447'
     elif s == '%':
-        return '230'
+        return '231'
     elif s == '*':
         return '117'
     elif s == '&':
@@ -186,7 +190,7 @@ def special(s : str) -> str:
     elif s == ';':
         return '346'
     elif s == ':':
-        return '421'
+        return '422'
     elif s == "'":
         return '040'
     elif s == ',':

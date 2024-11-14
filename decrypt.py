@@ -31,7 +31,7 @@ def fun(i : str) -> str:
         return 'N'
     elif i == '069':
         return 'O'
-    elif i == '128':
+    elif i == '127':
         return 'P'
     elif i == '024':
         return 'Q'
@@ -45,6 +45,8 @@ def fun(i : str) -> str:
         return 'U'
     elif i == '116':
         return 'V'
+    elif i == '171':
+        return 'W'
     elif i == '247':
         return 'X'
     elif i == '050':
@@ -61,9 +63,9 @@ def fun(i : str) -> str:
         return 'c'
     elif i == '192':
         return 'd'
-    elif i == '124':
+    elif i == '125':
         return 'e'
-    elif i == '167':
+    elif i == '168':
         return 'f'
     elif i == '010':
         return 'g'
@@ -71,9 +73,9 @@ def fun(i : str) -> str:
         return 'h'
     elif i == '229':
         return 'i'
-    elif i == '779':
+    elif i == '779':    
         return 'j'
-    elif i == '230':
+    elif i == '231':
         return 'k'
     elif i == '023':
         return 'l'
@@ -97,6 +99,8 @@ def fun(i : str) -> str:
         return 'u'
     elif i == '611':
         return 'v'
+    elif i == '901':
+        return 'w'
     elif i == '742':
         return 'x'
     elif i == '049':
@@ -139,7 +143,7 @@ def fun(i : str) -> str:
         return '#'
     elif i == '447':
         return '$'
-    elif i == '230':
+    elif i == '231':
         return '%'
     elif i == '117':
         return '*'
@@ -169,7 +173,7 @@ def fun(i : str) -> str:
         return ']'
     elif i == '346':
         return ';'
-    elif i == '421':
+    elif i == '422':
         return ':'
     elif i == '040':
         return "'"
