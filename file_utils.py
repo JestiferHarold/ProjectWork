@@ -1,133 +1,153 @@
-import csv
+from pickle import dump, load
+from os_utils import *
+from main import *
 import os
+from copy import *
 import re
 
-csv_file_path = "credentials.csv"
+file1 = None
+global dict1
+dict1 = {'sanjay':['asd','Sanjay@12'], 'asdada' : None}
+m = 0
 
-# Dictionary to hold user credentials, initialized with sample data
-dict1 = {'sanjay': ['asd', 'Sanjay@12'], 'asdada': None}
+def binary_flush():
+    file1.seek(0)
+    dump(dict1, file1)
+    file1.flush()
 
-def initialize_system():
-    """Initializes the system by setting up the CSV file and loading existing data."""
-    initialize_csv_file()
-    load_data_from_csv()
+def password_strength(pswd):
 
-def initialize_csv_file():
-    """Creates the CSV file with headers if it doesn't already exist."""
-    if not os.path.exists(csv_file_path):
-        with open(csv_file_path, 'w', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(["username", "password", "email"])
-
-def load_data_from_csv():
-    """Loads data from CSV file into dict1."""
-    global dict1
-    dict1 = {}
-    if os.path.exists(csv_file_path):
-        with open(csv_file_path, mode='r') as file:
-            reader = csv.reader(file)
-            next(reader, None)  # Skip header row
-            for row in reader:
-                if row:
-                    username, password, email = row
-                    dict1[username] = [password, email]
-
-def write_data_to_csv():
-    """Writes data from dict1 to the CSV file."""
-    with open(csv_file_path, mode='w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(["username", "password", "email"])  # Write header row
-        for username, details in dict1.items():
-            writer.writerow([username] + details)
-
-def is_password_same(username, password):
-    return dict1[username][0] == password
-
-def password_strength(password):
-    """Checks if the password meets strength requirements."""
-    if len(password) < 8:
-        print("Password should contain at least 8 characters.")
+    char = r'[^a-zA-Z0-9\s]'
+    if (bool(re.search(char, pswd))) and len(pswd) >= 8:
+        print("Strong password")
         return False
-    if not re.search(r'[^a-zA-Z0-9\s]', password):
-        print("Password should contain at least one special character.")
-        return False
-    print("Strong password")
-    return True
+    elif (bool(re.search(char, pswd))) and len(pswd) < 8:
+        print('Password should contain atleast 8 characters.')
+        return True
+    elif (not(bool(re.search(char, pswd)))) and len(pswd) >= 8:
+        print("Password should contain atleast one special character.")
+        return True
 
 def check_if_username_exists(username):
-    """Checks if the username exists in dict1."""
-    return username in dict1
+     
+    if username in dict1:
+        return True
+
 
 def check_if_email_exists(email):
-    """Checks if the email exists for any user in dict1."""
-    for key, details in dict1.items():
-        if details[1] == email:
-            print(f"{email} already exists.")
-            return True
-    return False
 
-def check_if_email_and_username_match(username, email):
-    """Checks if the username and email match for an existing user."""
-    return dict1.get(username, [None, None])[1] == email
+    for key in dict1:        #c1
+        if email == (dict1[key][1]):
+            print("{0} email already exists.".format(email))
+            return True  
+                             
+def check_if_email_and_username_are_the_same(username,email):
+    if dict1[username][1] == email:
+        return True
+
+def check_if_binary_file_exists():
+    return path.exists("credentials.bin")
+
+def create_base_binary_file():
+    global file1
+    if not check_if_binary_file_exists():
+        with open("credentials.bin", "wb+") as file1:    #c2
+            ...
+
+def is_password_same(username, password) -> bool:
+    if dict1[username][0] == password:
+        return True
+
+def open_binary_file():
+    global file1
+    if file1 is None or file1.closed:
+        file1 = open("credentials.bin", "rb+")
+    read_binary_file()
+
+def read_binary_file():
+    """Load data from file into dict1 if available."""
+    global dict1, file1
+    try:
+        file1.seek(0)
+        dict1 = load(file1)
+    except EOFError:
+        dict1 = {}
 
 def login(username, password):
-    """Verifies if the username and password are correct."""
-    return dict1.get(username, [None])[0] == password
-
-def create_account(username, password, email):
-    """Creates a new account if username and email are unique and password is strong."""
-    if check_if_username_exists(username):
-        print("Username already exists.")
-        return False
-    if check_if_email_exists(email):
-        print("Email already exists.")
-        return False
-    if password_strength(password):
-        dict1[username] = [password, email]
-        write_data_to_csv()
-        print(f"Account created successfully for {username}.")
+    if username in dict1 and dict1[username][0] == password:
         return True
-    return False
+    else:
+        return False
+
+ 
+def create_account(username, password, email):
+    if not check_if_username_exists(username) and not password_strength(password):
+        dict1[username] = [password, email]
+        # binary_flush()
+        # read_binary_file()
+        return True
 
 def delete_account(username, password):
-    """Deletes the account if the username and password match."""
-    if login(username, password):
+    if check_if_username_exists(username) and password :
         del dict1[username]
-        write_data_to_csv()
-        print(f"Account for {username} deleted successfully.")
-        return True
-    print("Incorrect username or password.")
-    return False
+        binary_flush()
+        read_binary_file()
 
-def change_password(username, old_password, new_password):
-    """Changes the password if the old password matches and the new password is strong."""
-    if login(username, old_password) and password_strength(new_password):
+def change_password_forgot(username, new_password):
+    change_password(username, new_password, None)
+
+def change_password(username, new_password, old_password):
+    if check_if_username_exists(username) and (old_password == dict1[username][0] or old_password == None):
         dict1[username][0] = new_password
-        write_data_to_csv()
-        print("Password changed successfully.")
+        binary_flush()
+        read_binary_file()
         return True
-    print("Password change failed.")
-    return False
 
 def change_username(username, password, new_username):
-    """Changes the username if the password is correct and the new username is unique."""
-    if login(username, password) and not check_if_username_exists(new_username):
-        dict1[new_username] = dict1.pop(username)
-        write_data_to_csv()
-        print("Username changed successfully.")
+    if check_if_username_exists(username) and password == dict1[username][0] and not check_if_username_exists(new_username):
+        global m        #c4
+        m = copy(dict1[username])
+        del dict1[username]
+        dict1[new_username] = copy(m)
+        binary_flush()
+        read_binary_file()
         return True
-    print("Username change failed.")
-    return False
 
 def change_email(username, password, new_email):
-    """Changes the email if the password is correct and the new email is unique."""
-    if login(username, password) and not check_if_email_exists(new_email):
-        dict1[username][1] = new_email
-        write_data_to_csv()
-        print("Email changed successfully.")
-        return True
-    print("Email change failed.")
-    return False
+    if check_if_username_exists(username) and password == dict1[username][0]:
+        dict1[username][1] = new_email        #c3
+        binary_flush()
+        read_binary_file()
 
-# Initialize the system on startup
-initialize_system()
+
+functions_list = [
+    quit,
+    init,
+    init_option_matcher,
+    logging,
+    forgot_password,
+    creating_an_account,
+    deleting_an_account,
+    Dashboard,
+    Dashboard_option_matcher,
+    account_settings,
+    inv_pass,
+    inv_user,
+    account_settings_option_matcher,
+    encrypting,
+    decrypting,
+    deleting_files,
+    create_directory,
+    delete_directory,
+    check_if_all_directories_exists,
+    password_strength,
+    check_if_email_exists,
+    check_if_username_exists,
+    create_base_binary_file,
+    create_account,
+    read_binary_file,
+    delete_account,
+    change_password,
+    change_username,
+    clear_terminal
+]

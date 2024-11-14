@@ -254,7 +254,7 @@ def account_settings_option_matcher(opt : int) -> None:
         decorator_for_quiting("Logging out of")
         return quit()
 
-def encrpyting() -> None:
+def encrypting() -> None:
 
     '''This function is used for encrypting data to numbers and save it in a file'''
 
@@ -268,9 +268,9 @@ def encrpyting() -> None:
         return Dashboard()
     basic_decorator()
     print(f"file with the name {file_name} exists, try again")
-    encrpyting()
+    encrypting()
 
-def decrpyting() -> None:
+def decrypting() -> None:
 
     '''This function is used for decrypting encryted data'''
 
@@ -286,7 +286,7 @@ def decrpyting() -> None:
 
     print(f"encrypted file with the name {file_name} is not avaialble, try again")
     basic_decorator()
-    decrpyting()
+    decrypting()
 
 def deleting_files() -> None:
 
