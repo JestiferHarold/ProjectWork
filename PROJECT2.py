@@ -102,7 +102,7 @@ def change_password(pswd,username):
 
 def change_username(username,newusername):
     if username in DICT:
-        DICT[newusername]=DICT[username]
+        DICT[newusername] = DICT[username]
         del DICT[username]
         pickle.dump(DICT,file)
         print(username,"username successfully changed.")

@@ -1,9 +1,10 @@
 from pickle import *
 from os_utils import *
-from os import path
+from os import *
 from copy import *
 import re
 
+global dict1
 dict1 = {}
 m = 0
 
@@ -27,7 +28,7 @@ def password_strength(pswd):
 
 def check_if_username_exists(username):
      
-     if username in DICT:
+    if username in DICT:
         return True
 
 
@@ -38,19 +39,25 @@ def check_if_email_exists(email):
             print("{0} email already exists.".format(email))
             return True  
                              
+def check_if_email_and_username_are_the_same(username,email):
+    if dict1[username][1] == email:
+        return True
 
 def check_if_binary_file_exists():
     return path.exists("credentials.bin")
 
-
 def create_base_binary_file():
     if not check_if_binary_file_exists():
-        with open("cred.dat","wb+") as what:
-            ...
+        with __builtins__.open("credentials.bin", "ab+") as what:
+            pass
 
-def open_binary_file():
+def is_password_same(username, password) -> bool:
+    if dict1[username][0] == password:
+        return True
+
+def openn_binary_file():
     global file
-    file = open("wtf.bin","wb+")
+    file = __builtins__.open("credentials.bin","ab+")
     binary_flush()
 
 def read_binary_file():
@@ -60,11 +67,19 @@ def binary_flush():
     dump(dict1, file)
     file.flush()
 
+def login(username, password):
+    if username in dict1 and dict1[username][0] == password:
+        return True
+    else:
+        return False
+
+ 
 def create_account(username, password, email):
     if not check_if_username_exists(username) and check_if_email_exists(email) and not password_strength(password):
-        dict1[username] = (password, email)
+        dict1[username] = [password, email]
         binary_flush()
         read_binary_file()
+        return True
 
 def delete_account(username, password):
     if check_if_username_exists(username) and password :
@@ -72,11 +87,15 @@ def delete_account(username, password):
         binary_flush()
         read_binary_file()
 
-def change_password(username, old_password, new_password):
-    if check_if_username_exists(username) and old_password == dict1[username][0]:
+def change_password_forgot(username, new_password):
+    change_password(username, new_password, None)
+
+def change_password(username, new_password, old_password):
+    if check_if_username_exists(username) and (old_password == dict1[username][0] or old_password == None):
         dict1[username][0] = new_password
         binary_flush()
         read_binary_file()
+        return True
 
 def change_username(username, password, new_username):
     if check_if_username_exists(username) and password == dict1[username][0] and not check_if_username_exists(new_username):
@@ -85,6 +104,7 @@ def change_username(username, password, new_username):
         dict1[new_username] = copy(m)
         binary_flush()
         read_binary_file()
+        return True
 
 def change_email(username, password, new_email):
     if check_if_username_exists(username) and password == dict1[username][0]:
@@ -94,18 +114,18 @@ def change_email(username, password, new_email):
 
 
 functions_list = [
-    director_seperator,
-    create_directory,
-    delete_directory,
-    check_if_all_directories_exists,
-    password_strength,
-    check_if_email_exists,
-    final_directory,
-    check_if_username_exists,
-    create_base_binary_file,
-    create_account,
-    read_binary_file,
-    delete_account,
-    change_password,
-    change_username
+    # director_seperator,
+    # create_directory,
+    # delete_directory,
+    # check_if_all_directories_exists,
+    # password_strength,
+    # check_if_email_exists,
+    # final_directory,
+    # check_if_username_exists,
+    # create_base_binary_file,
+    # create_account,
+    # read_binary_file,
+    # delete_account,
+    # change_password,
+    # change_username
 ]

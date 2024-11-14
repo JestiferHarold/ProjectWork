@@ -1,0 +1,15 @@
+The Rise of Electric Vehicles (EVs) and Their Impact on Global Emissions.
+The Rise of Electric Vehicles (EVs) and Their Impact on Global Emissions
+Electric vehicles (EVs) have experienced exponential growth in recent years. In 2012, global EV sales were just 130,000 units. Fast forward to 2023, and this number exceeded 10 million, marking a growth of over 7,500 in just a decade. This shift from gasoline-powered to electric-powered vehicles is driven by both environmental concerns and advancements in technology, with significant implications for reducing global emissions and combatting climate change.
+Key Factors Driving EV Adoption
+1. **Battery Cost Decline**: In 2010, the average cost per kilowatt-hour (kWh) of an EV battery was around $1,100. By 2023, this cost had fallen to under $150 per kWh, an 86 decrease. This drop has made EVs more affordable, with many models now competitively priced against traditional internal combustion engine (ICE) vehicles.
+2. **Government Incentives**: Countries worldwide are encouraging EV adoption. The U.S., for example, offers up to $7,500 in tax credits for EV buyers, while Norway has exempted EVs from value-added tax (VAT) and other registration fees. As a result, in 2023, EVs made up 90%] of all new car sales in Norway, compared to a global average of 14%.
+3. **Charging Infrastructure**: In 2012, there were only 50,000 public charging points worldwide. By 2022, this had increased to over 1.5 million, a 2,900 increase. This expansion of charging networks is essential to meet the demand and ease consumer concerns about range.
+
+Environmental Impact of EVs
+Transportation contributes 23 of global greenhouse gas emissions. In 2023, EVs were estimated to reduce emissions by about 1.5 million metric tons. While EVs still have a carbon footprint due to battery production, they emit, on average, 50 less CO over their lifetime compared to ICE vehicles.
+If EV sales continue at this pace, experts predict that by 2040, over 60of cars on the road could be electric, potentially reducing global emissions by 3.2 billion metric tons annually—roughly 10 of current total global emissions.
+
+Challenges Ahead
+Despite progress, EV adoption faces challenges. Battery recycling remains limited; only about 5 of lithium-ion batteries were recycled in 2023. Furthermore, producing these batteries relies on critical minerals such as lithium, cobalt, and nickel, raising environmental and ethical concerns around mining practices.
+This essay integrates key numbers and statistics to illustrate the rapid rise of EVs and their potential to reduce emissions while acknowledging the ongoing challenges in this transition.
