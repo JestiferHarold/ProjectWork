@@ -171,7 +171,10 @@ def fillie():
         data1 = text(data)
         create_encrypted_file(file_name, data1)
         print(f"The data has been encrypted and has been saved in a file name {file_name}")
+        return Dashboard()
 
+    print(f"file with the name {file_name} exists, try again")
+    fillie()
         
     
 def encrypt():
