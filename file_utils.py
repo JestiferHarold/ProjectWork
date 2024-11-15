@@ -85,7 +85,7 @@ def login(username, password):
 
  
 def create_account(username, password, email):
-    if not check_if_username_exists(username) and not password_strength(password):
+    if not check_if_username_exists(username):
         dict1[username] = [password, email]
         binary_flush()
         read_binary_file()
