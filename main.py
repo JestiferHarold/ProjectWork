@@ -5,7 +5,7 @@ from decrypt import *
 from platform import *
 from time import *
 from decorator import *
-
+import getpass
 def quit() -> None:
 
     '''Quits the program'''
@@ -62,7 +62,7 @@ def logging() -> None:
 
     global asdname1
     asdname1 = input("Enter your username : ")
-    password = input(f"Enter the password for {asdname1} : ")
+    password = getpass.getpass(f"Enter the password for {asdname1} : ")
     basic_decorator()
     if login(asdname1, password):
         
@@ -89,7 +89,7 @@ def forgot_password() -> None:
     if check_if_email_and_username_are_the_same(username, email):
 
         print(f"Username {username} with {email} as email exists")
-        new_password = input(f"Enter the new password for {username} : ")
+        new_password = getpass.getpass(f"Enter the new password for {username} : ")
         change_password_forgot(username, new_password)
         decorator1("Main",f"Password for {username} has been changed")
         return init()
@@ -103,13 +103,13 @@ def creating_an_account() -> None:
     '''This function is used to create an account with a password and an email attached to it'''
 
     asdname = input("Enter your username : ")
-    password = input(f"Enter the password for {asdname} : ")
+    password = getpass.getpass(f"Enter the password for {asdname} : ")
     email = input(f"Enter the email for {asdname} : ")
     basic_decorator()
 
     if create_account(asdname, password, email):
         if password_strength(password):
-            decorator1("Main Menu",f"An account with the username {asdname} and email {email} has been created")
+            decorator1("Main Menu",f" An account with the username {asdname} and email {email} has been created")
             return init()        
         print("Password too weak try again")
         basic_decorator()
@@ -127,7 +127,7 @@ def deleting_an_account() -> None:
     basic_decorator()
     if check_if_username_exists(asdname):
         def decoy():
-            password = input(f"An account with the username {asdname} exist enter password to proceed : ")
+            password = getpass.getpass(f"An account with the username {asdname} exist enter password to proceed : ")
             if is_password_same(asdname, password):
                 delete_directory(asdname)
                 delete_account(asdname, password)
@@ -211,8 +211,8 @@ def inv_pass() -> None:
     '''This function is used to set an new password for an account'''
 
     username = input("Enter your username : ")
-    old_password = input("Enter your old password : ")
-    new_password = input("Enter your new Password : ")
+    old_password = getpass.getpass("Enter your old password : ")
+    new_password = getpass.getpass("Enter your new Password : ")
     basic_decorator()
     if change_password(username, old_password, new_password):
         if password_strength(new_password):
@@ -228,7 +228,7 @@ def inv_user() -> None:
 
     '''This function is used to set an new username for an account'''
 
-    password = input("Enter your password : ")
+    password = getpass.getpass("Enter your password : ")
     basic_decorator()
     if is_password_same(logged_user, password):
         new_username = input("Enter your new username : ")
