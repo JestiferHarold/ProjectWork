@@ -1,5 +1,7 @@
 def fun(i: str) -> str:
+    
     '''This function is used for decrypting an encrypted data'''
+    
     # Uppercase alphabet 
     if i == '123':
         return 'A'
