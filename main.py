@@ -108,9 +108,6 @@ def creating_an_account() -> None:
     basic_decorator()
 
     if create_account(asdname, password, email):
-        if not password_strength(password):
-            basic_decorator()
-            return creating_an_account()
         decorator1("Main Menu",f"An account with the username {asdname} and email {email} has been created")
         return init()
     
