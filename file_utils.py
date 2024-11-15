@@ -21,13 +21,11 @@ def password_strength(pswd):
 
     char = r'[^a-zA-Z0-9\s]'
     if (bool(re.search(char, pswd))) and len(pswd) >= 8:
-        return False
+        return True
     elif (bool(re.search(char, pswd))) and len(pswd) < 8:
-        print('Password should contain atleast 8 characters.')
-        return True
+        return False
     elif (not(bool(re.search(char, pswd)))) and len(pswd) >= 8:
-        print("Password should contain atleast one special character.")
-        return True
+        return False
 
 def check_if_username_exists(username):
      
