@@ -26,6 +26,8 @@ def password_strength(pswd):
         return False
     elif (not(bool(re.search(char, pswd)))) and len(pswd) >= 8:
         return False
+    
+
 
 def check_if_username_exists(username):
      
