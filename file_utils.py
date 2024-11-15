@@ -21,7 +21,6 @@ def password_strength(pswd):
 
     char = r'[^a-zA-Z0-9\s]'
     if (bool(re.search(char, pswd))) and len(pswd) >= 8:
-        print("Strong password")
         return False
     elif (bool(re.search(char, pswd))) and len(pswd) < 8:
         print('Password should contain atleast 8 characters.')
@@ -92,7 +91,7 @@ def create_account(username, password, email):
         return True
 
 def delete_account(username, password):
-    if check_if_username_exists(username) and password :
+    if check_if_username_exists(username) and dict1[username][0] == password :
         del dict1[username]
         binary_flush()
         read_binary_file()
