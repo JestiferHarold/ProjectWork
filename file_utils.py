@@ -9,7 +9,7 @@ from decorator import *
 
 file1 = None
 global dict1
-dict1 = {'sanjay':['asd','Sanjay@12'], 'asdada' : None}
+dict1 = {}
 m = 0
 
 def binary_flush():
