@@ -26,7 +26,7 @@ This code is a simple user account management system that allows users to create
 ## 6.Encrypting data:
 It converts each character into a unique three-digit code according to specific mappings. This way, the original text is transformed into an encoded string of numbers, which can later be stored or transmitted securely.
 
-## 7. Dicrypting data:
+## 7. Decrypting data:
 The three-digit codes are mapped to corresponding characters, such as uppercase letters, lowercase letters, digits, and special characters, allowing the code to reconstruct the original plaintext message.
 
 # Features-
