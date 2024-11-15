@@ -1,6 +1,5 @@
-
 # Encryption functions for uppercase letters
-def bets1(i : str) -> str:
+def bets1(i: str) -> str:
     '''This function is used for the encryption of uppercase letters'''
     if i == 'A':
         return '123'
@@ -27,7 +26,7 @@ def bets1(i : str) -> str:
     elif i == 'L':
         return '660'
     elif i == 'M':
-        return '049'
+        return '040'  # Corrected code from '049'
     elif i == 'N':
         return '598'
     elif i == 'O':
@@ -52,13 +51,14 @@ def bets1(i : str) -> str:
         return '247'
     elif i == 'Y':
         return '050'
-    else:
+    elif i == 'Z':
         return '799'
+    else:
+        return ''
 
 # Encryption function for lowercase letters
-def bets2(i : str) -> str:
+def bets2(i: str) -> str:
     '''This function is used for the encryption of lowercase letters'''
-
     if i == 'a':
         return '167'
     elif i == 'b':
@@ -108,14 +108,15 @@ def bets2(i : str) -> str:
     elif i == 'x':
         return '742'
     elif i == 'y':
-        return '049'
-    else:
+        return '049'  
+    elif i == 'z':
         return '791'
+    else:
+        return ''
 
 # Encryption function for digits
-def git(d : str) -> str:
+def git(d: str) -> str:
     '''This function is used for the encryption of digits'''
-
     if d == '0':
         return '047'
     elif d == '1':
@@ -138,15 +139,13 @@ def git(d : str) -> str:
         return '191'
 
 # Encryption function for space
-def space(s : str) -> str:
+def space(s: str) -> str:
     '''This function is used for the encryption of a non-graphic character, space'''
-
-    return '999'
+    return '998'
 
 # Encryption function for special characters
-def special(s : str) -> str:
+def special(s: str) -> str:
     '''This function is used for the encryption of special characters'''
-
     if s == '~':
         return '007'
     elif s == '`':
@@ -160,7 +159,7 @@ def special(s : str) -> str:
     elif s == '$':
         return '447'
     elif s == '%':
-        return '231'
+        return '232'  # Fixed duplicate code from '231'
     elif s == '*':
         return '117'
     elif s == '&':
@@ -205,16 +204,12 @@ def special(s : str) -> str:
         return '412'
     elif s == '?':
         return '904'
-    # elif "\n" == s:
-    #     pass
     else:
         return '785'
 
 # Main encryption function
-def texties(filedata :str ) -> str:
-
+def texties(filedata: str) -> str:
     '''This function is used for encrypting data'''
-    
     encrypted_text = ''
     for i in filedata:
         if i.isalpha():
@@ -227,3 +222,4 @@ def texties(filedata :str ) -> str:
             code = special(i)
         encrypted_text += code
     return encrypted_text
+

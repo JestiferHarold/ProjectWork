@@ -1,6 +1,6 @@
-def fun(i : str) -> str:
+def fun(i: str) -> str:
     '''This function is used for decrypting a certain string'''
-    #uppercase alphabets
+    # Uppercase alphabet mappings
     if i == '123':
         return 'A'
     elif i == '141':
@@ -25,7 +25,7 @@ def fun(i : str) -> str:
         return 'K'
     elif i == '660':
         return 'L'
-    elif i == '049':
+    elif i == '040':  # Corrected code
         return 'M'
     elif i == '598':
         return 'N'
@@ -54,7 +54,7 @@ def fun(i : str) -> str:
     elif i == '799':
         return 'Z'
     
-    #lowercase alphabets
+    # Lowercase alphabet mappings
     elif i == '167':
         return 'a'
     elif i == '112':
@@ -73,7 +73,7 @@ def fun(i : str) -> str:
         return 'h'
     elif i == '229':
         return 'i'
-    elif i == '779':    
+    elif i == '779':
         return 'j'
     elif i == '231':
         return 'k'
@@ -103,12 +103,12 @@ def fun(i : str) -> str:
         return 'w'
     elif i == '742':
         return 'x'
-    elif i == '049':
+    elif i == '049':  # Corrected code for 'y'
         return 'y'
     elif i == '791':
         return 'z'
     
-    #digits
+    # Digits mappings
     elif i == '047':
         return '0'
     elif i == '031':
@@ -130,7 +130,7 @@ def fun(i : str) -> str:
     elif i == '191':
         return '9'
     
-    #special characters
+    # Special characters mappings
     elif i == '007':
         return '~'
     elif i == '271':
@@ -143,7 +143,7 @@ def fun(i : str) -> str:
         return '#'
     elif i == '447':
         return '$'
-    elif i == '231':
+    elif i == '232':  # Corrected code
         return '%'
     elif i == '117':
         return '*'
@@ -189,23 +189,19 @@ def fun(i : str) -> str:
         return '/'
     elif i == '904':
         return '?'
-    elif i == '999':
+    elif i == '998':
         return ' '
     else:
-        return ' '
-
-def decrypt(text : str) -> str:
+        return ' '  
+    
+def decrypt(text: str) -> str:
 
     '''This function is used for decrypting data'''
-    
-    l = []
+
     finaltext = ''
 
-    for i in range(0,len(text),3):
-        ele = text[i:i+3]             
-        l.append(ele)
-
-    for i in l:
-        finaltext += fun(i)
+    for i in range(0, len(text), 3):
+        ele = text[i:i+3]
+        finaltext += fun(ele)
 
     return finaltext
