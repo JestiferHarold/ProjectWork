@@ -108,9 +108,13 @@ def creating_an_account() -> None:
     basic_decorator()
 
     if create_account(asdname, password, email):
-        decorator1("Main Menu",f"An account with the username {asdname} and email {email} has been created")
-        return init()
-    
+        if password_strength(password):
+            decorator1("Main Menu",f"An account with the username {asdname} and email {email} has been created")
+            return init()        
+        print("Password too weak try again")
+        basic_decorator()
+        creating_an_account()
+
     print(f"Account with the username {asdname} exist, try an different username")
     basic_decorator()
     creating_an_account()
