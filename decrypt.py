@@ -1,6 +1,6 @@
 def fun(i: str) -> str:
-    '''This function is used for decrypting a certain string'''
-    # Uppercase alphabet mappings
+    '''This function is used for decrypting an encrypted data'''
+    # Uppercase alphabet 
     if i == '123':
         return 'A'
     elif i == '141':
@@ -25,7 +25,7 @@ def fun(i: str) -> str:
         return 'K'
     elif i == '660':
         return 'L'
-    elif i == '040':  # Corrected code
+    elif i == '040':  
         return 'M'
     elif i == '598':
         return 'N'
@@ -54,7 +54,7 @@ def fun(i: str) -> str:
     elif i == '799':
         return 'Z'
     
-    # Lowercase alphabet mappings
+    # Lowercase alphabet 
     elif i == '167':
         return 'a'
     elif i == '112':
@@ -103,7 +103,7 @@ def fun(i: str) -> str:
         return 'w'
     elif i == '742':
         return 'x'
-    elif i == '049':  # Corrected code for 'y'
+    elif i == '049':  
         return 'y'
     elif i == '791':
         return 'z'
@@ -130,7 +130,7 @@ def fun(i: str) -> str:
     elif i == '191':
         return '9'
     
-    # Special characters mappings
+    # Special characters 
     elif i == '007':
         return '~'
     elif i == '271':
@@ -143,7 +143,7 @@ def fun(i: str) -> str:
         return '#'
     elif i == '447':
         return '$'
-    elif i == '232':  # Corrected code
+    elif i == '232':  
         return '%'
     elif i == '117':
         return '*'
