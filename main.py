@@ -321,3 +321,92 @@ if __name__ == "__main__":
     m = list(dict.keys(dict1))
     check_if_all_directories_exists(m)
     init()
+
+'''
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+
+[Verse 1]
+Randorii kyou wa garaaki de lucky day
+Kattarii abura yogore mo kore de bye bye
+Dare da, dare da, atama no naka yobikakeru koe wa
+Are ga hoshii, kore ga hoshii to utatteiru
+
+[Pre-Chorus]
+Shiawase ni naritai
+Rakushite ikite itai
+Kono te ni tsukamitai
+Anata no sono mune no naka
+
+[Chorus]
+Happy de ume tsukushite
+Rest in peace made ikou ze
+Itsuka mita jigoku mo ii tokoro
+Ai wo baramaite
+I love you kenashite kure
+Zenbu ubatte waratte kure my honey
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a bеautiful star
+Nanka wasurechatten da
+See upcoming rock shows
+Get tickets for your favorite artists
+You might also like
+KICK BACK
+米津玄師 (Kenshi Yonezu)
+Nobody Gets Me
+SZA
+Vaundy - CHAINSAW BLOOD (Romanized)
+Genius Romanizations
+[Refrain]
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a bеautiful star
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+
+[Verse 2]
+Yon, yon, yon, san de hazureru tansansui
+Hangurii kojirasete hakisou na jinsei
+Yamanai ame wa nai yori saki ni sono kasa wo kure yo
+Are ga hoshii, kore ga hoshii
+Subete hoshii, tada munashii
+
+[Bridge]
+Shiawase ni naritai
+Rakushite ikite itai
+Zenbu mechakucha ni shitai
+Nanimo kamo keshisaritai
+Anata no sono mune no naka
+
+[Chorus]
+Lucky de ume tsukushite
+Rest in peace made ikou ze
+Yoi ko dake mukaeru tengoku ja
+Doumo ikirannai
+I love you kenashite, ubatte
+Waratte kure my honey
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Nanka wasurechatten da
+[Post-Chorus]
+Happy, lucky
+Konnichiwa, baby
+Yoi ko de itai
+Sorya tsumaranai
+Happy, lucky
+Konnichiwa, baby, so sweet
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Nanka sugoi ii kanji
+
+[Refrain]
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+Doryoku, mirai, a beautiful star
+(Ha, ha, ha, ha)
+'''
