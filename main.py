@@ -351,15 +351,7 @@ Doryoku, mirai, a beautiful star
 Doryoku, mirai, a beautiful star
 Doryoku, mirai, a bеautiful star
 Nanka wasurechatten da
-See upcoming rock shows
-Get tickets for your favorite artists
-You might also like
-KICK BACK
-米津玄師 (Kenshi Yonezu)
-Nobody Gets Me
-SZA
-Vaundy - CHAINSAW BLOOD (Romanized)
-Genius Romanizations
+
 [Refrain]
 Doryoku, mirai, a beautiful star
 Doryoku, mirai, a bеautiful star
